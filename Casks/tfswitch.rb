@@ -39,7 +39,7 @@ cask "tfswitch" do
   bash_completion "completions/tfswitch.bash"
   fish_completion "completions/tfswitch.fish"
 
-  postflight do
+  postflight_steps do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/tfswitch"]
     end
